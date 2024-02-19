@@ -10,7 +10,6 @@ namespace SampleCSharp
     {
         private string firstName = "Erick";
         private string lastName = "Kurniawan";
-        private string address = "Jakarta";
 
         public string getFullName()
         {

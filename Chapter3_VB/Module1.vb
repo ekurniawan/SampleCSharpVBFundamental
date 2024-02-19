@@ -36,8 +36,43 @@ Module Module1
         'Dim totalnumber = 12.5 * number5
         'Console.WriteLine(totalnumber)
 
-        Dim random As Random = New Random()
-        Dim randomResult = random.Next(1, 100)
+        'Dim random As Random = New Random()
+        'Dim randomResult = random.Next(1, 100)
+
+        'Dim student1 As New Student
+        'Console.WriteLine(student1.getFullName())
+        'Console.WriteLine(student1.getFullName("Nezuko", "Kamado"))
+        'Console.WriteLine(student1.getFullName("Nezuko", "Kamado", "123 Main St"))
+
+
+        Dim random As New Random
+        Dim roll1 = random.Next(1, 7)
+        Dim roll2 = random.Next(1, 7)
+        Dim roll3 = random.Next(1, 7)
+
+        Dim total = roll1 + roll2 + roll3
+        Console.WriteLine("Dice roll: " & roll1 & " + " & roll2 & " + " & roll3 & " = " & total)
+
+        If roll1 = roll2 OrElse roll1 = roll3 OrElse roll2 = roll3 Then
+            Console.WriteLine("You rolled doubles! +2 bonus to total!")
+            total += 2
+        End If
+
+        If roll1 = roll2 And roll2 = roll3 Then
+            Console.WriteLine("You rolled triples! +6 bonus to total!")
+            total += 6
+        End If
+
+        If total >= 15 Then
+            Console.WriteLine("You win a bonus roll!")
+        End If
+
+        If total < 15 Then
+            Console.WriteLine("Sorry, you did not win a bonus roll.")
+        End If
+
+        'test
+
     End Sub
 
 End Module
