@@ -1,9 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Chapter3;
-using Chapter4;
-using SampleCSharp;
-using System.Collections;
-
 
 //Employee employee1 = new Employee();
 //employee1.Name = "John Doe";
@@ -84,23 +79,78 @@ using System.Collections;
 //}
 
 
-string[] arrName = [ "John", "Doe","Erick","Budi" ];
+//string[] arrName = [ "John", "Doe","Erick","Budi" ];
 //fraudulentOrderIDs[3] = "D000";
 //Console.WriteLine(fraudulentOrderIDs[3]);
-Console.WriteLine(arrName[0]);
+//Console.WriteLine(arrName[0]);
 
 
-ArrayList arrNama = new ArrayList();
-arrNama.Add(12);
-arrNama.Add(13);
-arrNama.Add("Erick");
-arrNama.Add(20);
-arrNama.Add(30);
+//ArrayList arrNama = new ArrayList();
+//arrNama.Add(12);
+//arrNama.Add(13);
+//arrNama.Add("Erick");
+//arrNama.Add(20);
+//arrNama.Add(30);
 
-Console.WriteLine(arrNama[0]);
-Console.WriteLine(arrNama[2]);
+//Console.WriteLine(arrNama[0]);
+//Console.WriteLine(arrNama[2]);
 
-foreach(int number in arrNama)
+//foreach(int number in arrNama)
+//{
+//    Console.WriteLine(number);
+//}
+
+//List<int> lstNumbers = new List<int> { 12, 13, 45, 55, 88 };
+//List<int> lstNumbers = new List<int>();
+//lstNumbers.Add(12);
+//lstNumbers.Add(13);
+//lstNumbers.Add(20);
+//lstNumbers.Add(30);
+//lstNumbers.Add(40);
+
+//Console.WriteLine(lstNumbers[0]);
+//foreach (int number in lstNumbers)
+//{
+//    Console.WriteLine(number);
+//}
+
+//Stack<int> myStacks = new Stack<int>();
+//myStacks.Push(12);
+//myStacks.Push(13);
+//myStacks.Push(20);
+//myStacks.Push(30);
+//myStacks.Push(40);
+
+
+////Console.WriteLine(myStacks.Pop());
+////Console.WriteLine(myStacks.Pop());
+//foreach (int number in myStacks)
+//{
+//    Console.WriteLine(number);
+//}
+
+Queue<int> myQueue = new Queue<int>();
+myQueue.Enqueue(12);
+myQueue.Enqueue(13);
+myQueue.Enqueue(20);
+myQueue.Enqueue(30);
+myQueue.Enqueue(40);
+
+//Console.WriteLine(myQueue.Dequeue());
+
+foreach (int number in myQueue)
 {
     Console.WriteLine(number);
 }
+
+/*Dictionary<string, string> config = new Dictionary<string, string>();
+config.Add("resolution", "1920x1080");
+config.Add("title", "MyWebsite");
+config.Add("language", "English");
+
+Console.WriteLine(config["title"]);
+
+foreach (KeyValuePair<string, string> item in config)
+{
+    Console.WriteLine($"{item.Key} = {item.Value}");
+}*/

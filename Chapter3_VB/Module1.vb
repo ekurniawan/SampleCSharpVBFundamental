@@ -74,6 +74,159 @@ Module Module1
         Next
     End Sub
 
+    Sub SampleList()
+
+        Dim listNumber As New List(Of Integer) From {10, 20, 30}
+
+        listNumber.Add(10)
+        listNumber.Add(20)
+        listNumber.Add(30)
+
+        For Each number As Integer In listNumber
+            Console.WriteLine(number)
+        Next
+
+        Dim myStack As New Stack(Of Integer)
+        myStack.Push(10)
+        myStack.Push(20)
+        myStack.Push(30)
+
+        Console.WriteLine(myStack.Pop())
+
+        For Each number As Integer In myStack
+            Console.WriteLine(number)
+        Next
+
+        Dim myQueue As New Queue(Of Integer)
+        myQueue.Enqueue(10)
+        myQueue.Enqueue(20)
+        myQueue.Enqueue(30)
+
+        Console.WriteLine(myQueue.Dequeue())
+
+        For Each number As Integer In myQueue
+            Console.WriteLine(number)
+        Next
+
+    End Sub
+
+    Sub SampleDictionary()
+        Dim dictNumber As New Dictionary(Of String, Integer)
+        dictNumber.Add("One", 1)
+        dictNumber.Add("Two", 2)
+        dictNumber.Add("Three", 3)
+
+        For Each number As KeyValuePair(Of String, Integer) In dictNumber
+            Console.WriteLine(number.Key & " " & number.Value)
+        Next
+    End Sub
+
+    Sub SampleAssignment()
+        Dim examAssignments = 5
+
+        Dim sophiaScores() As Integer = {90, 86, 87, 98, 100, 94, 90}
+        Dim andrewScores() As Integer = {92, 89, 81, 96, 90, 89}
+        Dim emmaScores() As Integer = {90, 85, 87, 98, 68, 89, 89, 89}
+        Dim loganScores() As Integer = {90, 95, 87, 88, 96, 96}
+
+        Dim studentNames() As String = {"Sophia", "Andrew", "Emma", "Logan"}
+
+        Dim studentScores(10) As Integer
+
+        Dim currentStudentLetterGrade = ""
+
+        Console.WriteLine("Student".PadRight(15) & "Grade".PadRight(15))
+
+        For Each name As String In studentNames
+            Dim currentStudent = name
+            If currentStudent = "Sophia" Then
+                studentScores = sophiaScores
+            ElseIf currentStudent = "Andrew" Then
+                studentScores = andrewScores
+            ElseIf currentStudent = "Emma" Then
+                studentScores = emmaScores
+            ElseIf currentStudent = "Logan" Then
+                studentScores = loganScores
+            End If
+
+            Dim sumAssignmentScores = 0
+            Dim currentStudentGrade = CDec(0)
+            Dim gradedAssignments = 0
+
+            For Each score As Integer In studentScores
+
+                gradedAssignments += 1
+                If gradedAssignments <= examAssignments Then
+                    sumAssignmentScores += score
+                Else
+                    currentStudentGrade += CDec(score) / 10
+                End If
+            Next
+
+            currentStudentGrade = CDec(sumAssignmentScores) / examAssignments
+            If currentStudentGrade >= 97 Then
+                currentStudentLetterGrade = "A+"
+            ElseIf currentStudentGrade >= 93 Then
+                currentStudentLetterGrade = "A"
+            ElseIf currentStudentGrade >= 90 Then
+                currentStudentLetterGrade = "A-"
+            ElseIf currentStudentGrade >= 87 Then
+                currentStudentLetterGrade = "B+"
+            ElseIf currentStudentGrade >= 83 Then
+                currentStudentLetterGrade = "B"
+            ElseIf currentStudentGrade >= 80 Then
+                currentStudentLetterGrade = "B-"
+            ElseIf currentStudentGrade >= 77 Then
+                currentStudentLetterGrade = "C+"
+            ElseIf currentStudentGrade >= 73 Then
+                currentStudentLetterGrade = "C"
+            ElseIf currentStudentGrade >= 70 Then
+                currentStudentLetterGrade = "C-"
+            ElseIf currentStudentGrade >= 67 Then
+                currentStudentLetterGrade = "D+"
+            ElseIf currentStudentGrade >= 63 Then
+                currentStudentLetterGrade = "D"
+            ElseIf currentStudentGrade >= 60 Then
+                currentStudentLetterGrade = "D-"
+            Else
+                currentStudentLetterGrade = "F"
+            End If
+
+            Console.WriteLine(currentStudent.PadRight(15) & currentStudentGrade.ToString.PadRight(15) & currentStudentLetterGrade.PadRight(8))
+        Next
+        Console.WriteLine("Press the Enter key to continue")
+        Console.ReadLine()
+    End Sub
+
+    Sub Task1()
+        Dim arrLocations() As String = {"Praya Barat", "Praya Barat Daya", "Pujut", "Praya Timur", "Janapria", "Kopang", "Praya", "Praya Tengah", "Jonggat", "Pringgarata", "Batukliang", "Batukliang Utara"}
+        Dim arrLaki() As Integer = {41919, 29128, 59620, 36653, 43262, 47088, 63509, 37305, 53734, 38715, 45096, 30784}
+        Dim arrPerempuan() As Integer = {42309, 29971, 60521, 37414, 43475, 47715, 64311, 37438, 54456, 38842, 45062, 30715}
+
+        Console.WriteLine("Kecamatan".PadRight(20) & " " & "Laki-laki".PadLeft(10) & " " & "Perempuan".PadLeft(10) &
+                          "Total".PadLeft(10) & " " & "(%) Laki-laki".PadLeft(15) & " " & "(%) Perempuan".PadLeft(15) & " " &
+                           "Selisih".PadLeft(10) & " " & "Mayoritas".PadLeft(10))
+        For i As Integer = 0 To arrLocations.Length - 1
+            Dim total = arrLaki(i) + arrPerempuan(i)
+            Dim percentLaki = CDec(arrLaki(i)) / total * 100
+            Dim percentPerempuan = CDec(arrPerempuan(i)) / total * 100
+            Dim selisih = Math.Abs(arrLaki(i) - arrPerempuan(i))
+            Dim mayoritas = IIf(arrLaki(i) > arrPerempuan(i), "Laki-laki", "Perempuan")
+
+            Console.WriteLine(arrLocations(i).PadRight(20) & " " & arrLaki(i).ToString.PadLeft(10) & " " & arrPerempuan(i).ToString.PadLeft(10) &
+                              total.ToString.PadLeft(10) & " " & percentLaki.ToString("N2").PadLeft(15) & " " &
+                              percentPerempuan.ToString("N2").PadLeft(15) & " " & selisih.ToString.PadLeft(10) &
+                              " " & mayoritas.ToString.PadLeft(10))
+        Next
+
+
+        Dim sortLaki = arrLaki.OrderBy(Of Integer)(Function(x) x)
+        For Each laki As Integer In sortLaki
+            Console.WriteLine(laki.ToString)
+        Next
+
+    End Sub
+
     Sub Main()
         '        Dim emp1 As New Employee
         '        emp1.Name = "John"
@@ -138,7 +291,12 @@ Module Module1
 
         'SampleChallenge()
         'SampleArray()
-        SampleArrayList()
+        'SampleArrayList()
+        'SampleList()
+        'SampleAssignment()
+        Task1()
     End Sub
+
+
 
 End Module
