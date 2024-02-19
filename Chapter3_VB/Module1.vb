@@ -1,5 +1,5 @@
-﻿'Option Strict On
-'Option Infer On
+﻿Option Strict On
+Option Infer On
 
 'Class Employee
 '    Public Name As String
@@ -30,6 +30,48 @@ Module Module1
             Console.WriteLine($"Renew now and save {discountPercentage}%!")
         End If
 
+
+        Dim r = 1
+        Select Case r
+            Case 1
+                Console.WriteLine("Case 1")
+            Case 2
+                Console.WriteLine("Case 2")
+            Case Else
+                Console.WriteLine("Case Else")
+        End Select
+
+
+    End Sub
+
+    Sub SampleArray()
+        Dim arrNama(3) As String
+        arrNama(0) = "Erick"
+        arrNama(1) = "Santos"
+        arrNama(2) = "Nezuko"
+
+        For i = 0 To 2
+            Console.WriteLine(arrNama(i))
+        Next
+
+        For Each strNama In arrNama
+            Console.WriteLine(strNama)
+        Next
+
+        Dim names = {"Erick", "Santos", "Nezuko", "Kamado"}
+
+    End Sub
+
+    Sub SampleArrayList()
+        Dim arrNumber As New ArrayList
+        arrNumber.Add(10)
+        arrNumber.Add(20)
+        arrNumber.Add("Erick")
+        arrNumber.Add(30)
+
+        For Each number As Integer In arrNumber
+            Console.WriteLine(number)
+        Next
     End Sub
 
     Sub Main()
@@ -94,7 +136,9 @@ Module Module1
         '            Console.WriteLine("Sorry, you did not win a bonus roll.")
         '        End If
 
-        SampleChallenge()
+        'SampleChallenge()
+        'SampleArray()
+        SampleArrayList()
     End Sub
 
 End Module
