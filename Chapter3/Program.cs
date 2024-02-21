@@ -240,29 +240,52 @@ greeting messages
 //    return "Hi, my name is Andrew. Good to meet you.";
 //}
 
-double float1 = 3000.0;
-double float2 = 0.0;
-int number1 = 3000;
-int number2 = 0;
+//double float1 = 3000.0;
+//double float2 = 0.0;
+//int number1 = 3000;
+//int number2 = 0;
 
-int[] numbers = new int[3];
+//int[] numbers = new int[3];
 
-try
-{
-    //numbers[10] = 12;
-    Console.WriteLine(float1 / float2);
-    Console.WriteLine(number1 / number2);
-}
-catch (IndexOutOfRangeException ioeEx)
-{
-    Console.WriteLine($"An index was out of range! {ioeEx.Message}");
-}
-catch (DivideByZeroException dbzEx)
-{
-    Console.WriteLine($"You attempted to divide by zero! {dbzEx.Message}");
-}
-catch (Exception ex)
-{
+//try
+//{
+//    //numbers[10] = 12;
+//    Console.WriteLine(float1 / float2);
+//    Console.WriteLine(number1 / number2);
+//}
+//catch (IndexOutOfRangeException ioeEx)
+//{
+//    Console.WriteLine($"An index was out of range! {ioeEx.Message}");
+//}
+//catch (DivideByZeroException dbzEx)
+//{
+//    Console.WriteLine($"You attempted to divide by zero! {dbzEx.Message}");
+//}
+//catch (Exception ex)
+//{
 
-    Console.WriteLine($"{ex.Message}");
-}
+//    Console.WriteLine($"{ex.Message}");
+//}
+
+
+using SampleCSharp;
+
+//Time time1 = new Time();
+//Time time2 = new Time(2024, 2, 2, 5, 30, 20);
+//Time time3 = new Time(DateTime.Now);
+
+//time1.Year = 2022;
+//time1.Month = 2;
+
+//Kucing.BanyakKucing();
+
+Window myWindow = new Window(5, 10);
+myWindow.Top = 20;
+myWindow.Left = 30;
+myWindow.DrawWindow();
+
+ListBox myListBox = new ListBox(20, 30, "Hello, World!");
+myListBox.Top = 30;
+myListBox.Left = 40;
+myListBox.ListBoxContent = "Hello, World!";
+myListBox.DrawWindow();

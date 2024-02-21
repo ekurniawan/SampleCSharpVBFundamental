@@ -354,6 +354,19 @@ Module Module1
         Console.WriteLine("inside Multiply method: " & a & "x" & b & " = " & c)
     End Sub
 
+    Sub SampleClass()
+        Dim time1 As New Time
+        Dim time2 As New Time(2024, 2, 29, 12, 0, 0)
+        Dim time3 As New Time(DateTime.Now)
+
+        time1.Year = 2024
+        time1.Month = 2
+        time1.MyDate = 29
+
+        Kucing.BanyakKucing()
+
+    End Sub
+
     Sub Main()
         '        Dim emp1 As New Employee
         '        emp1.Name = "John"
