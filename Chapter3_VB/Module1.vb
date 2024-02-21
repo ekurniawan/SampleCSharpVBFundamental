@@ -388,6 +388,14 @@ Module Module1
         Next
     End Sub
 
+    Sub SampleDb()
+        Dim custDAL As New CustomerDAL
+        Dim customers = custDAL.GetCustomers()
+        For Each customer As Customer In customers
+            Console.WriteLine("{0}-{1}-{2}", customer.CustID, customer.CustName, customer.CustStreet)
+        Next
+    End Sub
+
     Sub Main()
         '        Dim emp1 As New Employee
         '        emp1.Name = "John"
@@ -456,19 +464,21 @@ Module Module1
         'SampleList()
         'SampleAssignment()
         'BalikKata("The quick brown fox jumps over the lazy dog")
-        Dim a = 3
-        Dim b = 4
-        Dim c = 0
+        'Dim a = 3
+        'Dim b = 4
+        'Dim c = 0
 
-        Multiplay(a, b, c)
+        'Multiplay(a, b, c)
 
-        Try
+        'Try
 
-        Catch ex As Exception
+        'Catch ex As Exception
 
-        Finally
+        'Finally
 
-        End Try
+        'End Try
+
+        SampleDb()
 
     End Sub
 
