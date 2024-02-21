@@ -365,6 +365,21 @@ Module Module1
 
         Kucing.BanyakKucing()
 
+        Dim lstControl As New List(Of Control)
+        lstControl.Add(New ListBox(10, "20", "Hello"))
+        lstControl.Add(New Button(10, "20", "Hello"))
+
+        For Each control As Control In lstControl
+            If TypeOf (control) Is ListBox Then
+                Dim myListBox = CType(control, ListBox)
+                myListBox.ListBoxContent = "Hello"
+                myListBox.DrawWindow()
+            ElseIf TypeOf (control) Is Button Then
+                Dim myButton = CType(control, Button)
+                myButton.ButtonContent = "Hello"
+                myButton.DrawWindow()
+            End If
+        Next
     End Sub
 
     Sub Main()
