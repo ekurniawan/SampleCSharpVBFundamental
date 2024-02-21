@@ -282,10 +282,38 @@ using SampleCSharp;
 Window myWindow = new Window(5, 10);
 myWindow.Top = 20;
 myWindow.Left = 30;
-myWindow.DrawWindow();
+//myWindow.DrawWindow();
 
 ListBox myListBox = new ListBox(20, 30, "Hello, World!");
 myListBox.Top = 30;
 myListBox.Left = 40;
 myListBox.ListBoxContent = "Hello, World!";
-myListBox.DrawWindow();
+//myListBox.DrawWindow();
+
+Button myButton = new Button(40, 50);
+myButton.Top = 50;
+myButton.Left = 60;
+myButton.FontColor = "Blue";
+//myButton.DrawWindow();
+
+Window[] windows = new Window[3];
+windows[0] = myWindow;
+windows[1] = myListBox;
+windows[2] = myButton;
+
+windows[0].DrawWindow();
+Console.WriteLine(windows[0].Top + "," + windows[0].Left);
+windows[1].DrawWindow();
+Console.WriteLine($"{windows[1].Top} , {windows[1].Left}");
+windows[2].DrawWindow();
+
+Console.WriteLine(windows[0] is Window);
+
+var lstBox = windows[1] as ListBox;
+Console.WriteLine(windows[1] is ListBox);
+Console.WriteLine(lstBox is ListBox);
+Console.WriteLine($"ListBox Content: {lstBox.ListBoxContent}");
+
+Console.WriteLine(windows[2] is Window);
+Console.WriteLine(windows[2] is ListBox);
+Console.WriteLine(windows[2] is Button);

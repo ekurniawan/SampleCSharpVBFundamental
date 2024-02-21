@@ -56,4 +56,24 @@
             Console.WriteLine("Draw List box content: {0} {1} {2}", Top, Left, ListBoxContent);
         }
     }
+
+    public class Button : Window
+    {
+        private string fontColor;
+        public string FontColor
+        {
+            get { return fontColor; }
+            set { fontColor = value; }
+        }
+
+        public Button(int top, int left) : base(top, left)
+        {
+            this.fontColor = "Black";
+        }
+
+        public override void DrawWindow()
+        {
+            Console.WriteLine("Draw Button pada ({0},{1}) dan Font Color {2}", Top, Left, FontColor);
+        }
+    }
 }
