@@ -268,8 +268,6 @@ greeting messages
 //}
 
 
-using SampleCSharp;
-
 //Time time1 = new Time();
 //Time time2 = new Time(2024, 2, 2, 5, 30, 20);
 //Time time3 = new Time(DateTime.Now);
@@ -279,41 +277,67 @@ using SampleCSharp;
 
 //Kucing.BanyakKucing();
 
-Window myWindow = new Window(5, 10);
-myWindow.Top = 20;
-myWindow.Left = 30;
-//myWindow.DrawWindow();
+//Window myWindow = new Window(5, 10);
+//myWindow.Top = 20;
+//myWindow.Left = 30;
+////myWindow.DrawWindow();
 
-ListBox myListBox = new ListBox(20, 30, "Hello, World!");
-myListBox.Top = 30;
-myListBox.Left = 40;
-myListBox.ListBoxContent = "Hello, World!";
-//myListBox.DrawWindow();
+//ListBox myListBox = new ListBox(20, 30, "Hello, World!");
+//myListBox.Top = 30;
+//myListBox.Left = 40;
+//myListBox.ListBoxContent = "Hello, World!";
+////myListBox.DrawWindow();
 
-Button myButton = new Button(40, 50);
-myButton.Top = 50;
-myButton.Left = 60;
-myButton.FontColor = "Blue";
-//myButton.DrawWindow();
+//Button myButton = new Button(40, 50);
+//myButton.Top = 50;
+//myButton.Left = 60;
+//myButton.FontColor = "Blue";
+////myButton.DrawWindow();
 
-Window[] windows = new Window[3];
-windows[0] = myWindow;
-windows[1] = myListBox;
-windows[2] = myButton;
+//Window[] windows = new Window[3];
+//windows[0] = myWindow;
+//windows[1] = myListBox;
+//windows[2] = myButton;
 
-windows[0].DrawWindow();
-Console.WriteLine(windows[0].Top + "," + windows[0].Left);
-windows[1].DrawWindow();
-Console.WriteLine($"{windows[1].Top} , {windows[1].Left}");
-windows[2].DrawWindow();
+//windows[0].DrawWindow();
+//Console.WriteLine(windows[0].Top + "," + windows[0].Left);
+//windows[1].DrawWindow();
+//Console.WriteLine($"{windows[1].Top} , {windows[1].Left}");
+//windows[2].DrawWindow();
 
-Console.WriteLine(windows[0] is Window);
+//Console.WriteLine(windows[0] is Window);
 
-var lstBox = windows[1] as ListBox;
-Console.WriteLine(windows[1] is ListBox);
-Console.WriteLine(lstBox is ListBox);
-Console.WriteLine($"ListBox Content: {lstBox.ListBoxContent}");
+//var lstBox = windows[1] as ListBox;
+//Console.WriteLine(windows[1] is ListBox);
+//Console.WriteLine(lstBox is ListBox);
+//Console.WriteLine($"ListBox Content: {lstBox.ListBoxContent}");
 
-Console.WriteLine(windows[2] is Window);
-Console.WriteLine(windows[2] is ListBox);
-Console.WriteLine(windows[2] is Button);
+//Console.WriteLine(windows[2] is Window);
+//Console.WriteLine(windows[2] is ListBox);
+//Console.WriteLine(windows[2] is Button);
+
+using SampleCSharp;
+
+List<Control> controls = new List<Control>();
+controls.Add(new ListBox(10, 10, "First List Box"));
+controls.Add(new Button(20, 20));
+
+GridData gridData = new GridData(30, 30, 40, 40);
+controls.Add(gridData);
+
+foreach (Control control in controls)
+{
+    if (control is ListBox)
+    {
+        ListBox listBox = control as ListBox;
+        listBox.ListBoxContent = "Content of List Box";
+        listBox.DrawWindow();
+    }
+    else if (control is Button)
+    {
+        Button button = control as Button;
+        button.FontColor = "Red";
+        button.DrawWindow();
+    }
+}
+

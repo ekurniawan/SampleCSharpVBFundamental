@@ -1,6 +1,6 @@
 ﻿namespace SampleCSharp
 {
-    public class Window
+    /*public class Window
     {
         private int top;
         public int Top
@@ -75,5 +75,5 @@
         {
             Console.WriteLine("Draw Button pada ({0},{1}) dan Font Color {2}", Top, Left, FontColor);
         }
-    }
+    }*/
 }
