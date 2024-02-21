@@ -316,28 +316,38 @@ greeting messages
 //Console.WriteLine(windows[2] is ListBox);
 //Console.WriteLine(windows[2] is Button);
 
+//List<Control> controls = new List<Control>();
+//controls.Add(new ListBox(10, 10, "First List Box"));
+//controls.Add(new Button(20, 20));
+
+//GridData gridData = new GridData(30, 30, 40, 40);
+//controls.Add(gridData);
+
+//foreach (Control control in controls)
+//{
+//    if (control is ListBox)
+//    {
+//        ListBox listBox = control as ListBox;
+//        listBox.ListBoxContent = "Content of List Box";
+//        listBox.DrawWindow();
+//    }
+//    else if (control is Button)
+//    {
+//        Button button = control as Button;
+//        button.FontColor = "Red";
+//        button.DrawWindow();
+//    }
+//}
+
 using SampleCSharp;
 
-List<Control> controls = new List<Control>();
-controls.Add(new ListBox(10, 10, "First List Box"));
-controls.Add(new Button(20, 20));
+List<ICompressable> documents = new List<ICompressable>();
+documents.Add(new Document());
+documents.Add(new Image());
 
-GridData gridData = new GridData(30, 30, 40, 40);
-controls.Add(gridData);
 
-foreach (Control control in controls)
+foreach (ICompressable document in documents)
 {
-    if (control is ListBox)
-    {
-        ListBox listBox = control as ListBox;
-        listBox.ListBoxContent = "Content of List Box";
-        listBox.DrawWindow();
-    }
-    else if (control is Button)
-    {
-        Button button = control as Button;
-        button.FontColor = "Red";
-        button.DrawWindow();
-    }
+    document.Compress();
+    document.Decompress();
 }
-

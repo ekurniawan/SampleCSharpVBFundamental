@@ -113,6 +113,12 @@ Module Module1
 
     End Sub
 
+    Sub SampleInterface()
+        Dim lstStore As New List(Of IStorable)
+        lstStore.Add(New Document)
+
+    End Sub
+
     Sub SampleDictionary()
         Dim dictNumber As New Dictionary(Of String, Integer)
         dictNumber.Add("One", 1)

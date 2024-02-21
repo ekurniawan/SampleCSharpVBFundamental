@@ -42,7 +42,7 @@
     }
 
 
-    public class ListBox : Control
+    public class ListBox : Control, IStorable, ICompressable
     {
         private string listBoxContent;
         public string ListBoxContent
@@ -50,6 +50,17 @@
             get { return listBoxContent; }
             set { listBoxContent = value; }
         }
+
+        private int status;
+        public int Status
+        {
+            get { return status; }
+            set
+            {
+                status = value;
+            }
+        }
+
 
         public ListBox(int top, int left, string listBoxContent) : base(top, left)
         {
@@ -61,6 +72,26 @@
             Console.WriteLine("Position :({0},{1})", Top, Left);
             Console.WriteLine("Menuliskan string pada listbox: {0}",
             listBoxContent);
+        }
+
+        public void Read()
+        {
+            Console.WriteLine("Reading ListBox...");
+        }
+
+        public void Write()
+        {
+            Console.WriteLine("Writing ListBox...");
+        }
+
+        public void Compress()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Decompress()
+        {
+            throw new NotImplementedException();
         }
     }
 
