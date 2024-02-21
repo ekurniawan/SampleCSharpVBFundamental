@@ -1,22 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SampleCSharp
+﻿namespace SampleCSharp
 {
     public class Student
     {
-        private string firstName = "Erick";
-        private string lastName = "Kurniawan";
+        public string LastName { get; set; } = string.Empty;
+
+        private string firstName = string.Empty;
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                if (value.Length > 0)
+                    firstName = value;
+                else
+                    firstName = string.Empty;
+            }
+        }
+
+        public string getFirstName()
+        {
+            return firstName;
+        }
+
+        public void setFirstName(string value)
+        {
+            if (value.Length > 0)
+                firstName = value;
+            else
+                firstName = string.Empty;
+        }
 
         public string getFullName()
         {
-            return $"{firstName} {lastName}";
+            return $"{firstName}";
         }
 
-        public string getFullName(string firstName,string lastName)
+        public string getFullName(string firstName, string lastName)
         {
             return $"{firstName} {lastName}";
         }

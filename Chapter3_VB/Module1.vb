@@ -1,5 +1,8 @@
 ﻿Option Strict On
 Option Infer On
+Imports System.Text
+
+
 
 'Class Employee
 '    Public Name As String
@@ -225,6 +228,130 @@ Module Module1
             Console.WriteLine(laki.ToString)
         Next
 
+        Dim a = True
+        Console.WriteLine(Not a)
+
+    End Sub
+
+    Sub SampleProperty()
+        Dim student1 As New Student
+        student1.FirstName = "Erick"
+        Console.WriteLine(student1.FirstName)
+
+        student1.LastName = "Kurniawan"
+        Console.WriteLine(student1.LastName)
+
+    End Sub
+
+    Sub TestExercise1()
+        Dim a = 5
+        If a > 0 Then
+            Dim b = 6
+
+        End If
+
+        'Dim c = a + b
+    End Sub
+
+    Sub SampleCase()
+        Dim employeeLevel = 200
+        Dim employeeName = "John Smith"
+
+        Dim title = ""
+
+        Select Case employeeLevel
+            Case 100
+                title = "Junior Associate"
+            Case 200
+                title = "Senior Associate"
+            Case 300
+                title = "Manager"
+            Case 400
+                title = "Senior Manager"
+            Case Else
+                title = "Associate"
+        End Select
+
+        Select Case employeeLevel
+            Case 100 Or 200
+                title = "Associate"
+        End Select
+
+    End Sub
+
+    Sub ExerciseCase()
+        Dim sku = "01-MN-L"
+
+        Dim product = sku.Split(New Char() {"-"c})
+
+        Dim tipe = ""
+        Dim color = ""
+        Dim size = ""
+
+        Select Case product(0)
+            Case "01"
+                tipe = "Sweat shirt"
+            Case "02"
+                tipe = "T-Shirt"
+            Case "03"
+                tipe = "Sweat pants"
+            Case Else
+                tipe = "Other"
+        End Select
+
+        Select Case product(1)
+            Case "BL"
+                color = "Black"
+            Case "MN"
+                color = "Maroon"
+            Case Else
+                color = "White"
+        End Select
+
+        Select Case product(2)
+            Case "S"
+                size = "Small"
+            Case "M"
+                size = "Medium"
+            Case "L"
+                size = "Large"
+            Case Else
+                size = "One Size Fits All"
+        End Select
+        Console.WriteLine("Product:" & tipe & " " & color & " " & size)
+
+        For i As Integer = 1 To 10
+            If i Mod 3 = 0 Then
+                Continue For
+            End If
+        Next
+
+        Dim total As Nullable(Of Integer) = Nothing
+
+        If IsNothing(total) Then
+            total = 0
+        End If
+
+
+
+    End Sub
+
+    Sub BalikKata(param As String)
+        Dim pangram = param
+        Dim words = pangram.Split(" "c)
+        Dim sb As New StringBuilder
+        Dim wordarray(10) As String
+        For Each word As String In words
+            Dim charArray = word.ToCharArray()
+            Array.Reverse(charArray)
+            sb.Append(" " & charArray)
+        Next
+        Console.WriteLine(LTrim(sb.ToString()))
+    End Sub
+
+    Sub Multiplay(a As Integer, b As Integer, ByRef c As Integer)
+        c = a * b
+        Console.WriteLine("inside Multiply method: " & a & "x" & b & " = " & c)
     End Sub
 
     Sub Main()
@@ -294,7 +421,21 @@ Module Module1
         'SampleArrayList()
         'SampleList()
         'SampleAssignment()
-        Task1()
+        'BalikKata("The quick brown fox jumps over the lazy dog")
+        Dim a = 3
+        Dim b = 4
+        Dim c = 0
+
+        Multiplay(a, b, c)
+
+        Try
+
+        Catch ex As Exception
+
+        Finally
+
+        End Try
+
     End Sub
 
 

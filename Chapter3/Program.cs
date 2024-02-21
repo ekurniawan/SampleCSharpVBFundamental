@@ -103,7 +103,7 @@
 //List<int> lstNumbers = new List<int> { 12, 13, 45, 55, 88 };
 //List<int> lstNumbers = new List<int>();
 //lstNumbers.Add(12);
-//lstNumbers.Add(13);
+//lstNumbers.Add(13); 
 //lstNumbers.Add(20);
 //lstNumbers.Add(30);
 //lstNumbers.Add(40);
@@ -129,19 +129,19 @@
 //    Console.WriteLine(number);
 //}
 
-Queue<int> myQueue = new Queue<int>();
-myQueue.Enqueue(12);
-myQueue.Enqueue(13);
-myQueue.Enqueue(20);
-myQueue.Enqueue(30);
-myQueue.Enqueue(40);
+//Queue<int> myQueue = new Queue<int>();
+//myQueue.Enqueue(12);
+//myQueue.Enqueue(13);
+//myQueue.Enqueue(20);
+//myQueue.Enqueue(30);
+//myQueue.Enqueue(40);
 
-//Console.WriteLine(myQueue.Dequeue());
+////Console.WriteLine(myQueue.Dequeue());
 
-foreach (int number in myQueue)
-{
-    Console.WriteLine(number);
-}
+//foreach (int number in myQueue)
+//{
+//    Console.WriteLine(number);
+//}
 
 /*Dictionary<string, string> config = new Dictionary<string, string>();
 config.Add("resolution", "1920x1080");
@@ -154,3 +154,115 @@ foreach (KeyValuePair<string, string> item in config)
 {
     Console.WriteLine($"{item.Key} = {item.Value}");
 }*/
+
+//Student student1 = new Student();
+//student1.setFirstName("Erick");
+//Console.WriteLine(student1.getFirstName());
+
+//Student student2 = new Student();
+//student2.FirstName = "Budi";
+//Console.WriteLine(student2.FirstName);
+//student2.LastName = "Santosa";
+//Console.WriteLine(student2.LastName);
+
+//for (int i = 1; i <= 10; i++)
+//{
+//    if (i % 3 == 0)
+//        continue;
+//}
+
+//string? nama = null;
+//int? number1 = null;
+
+//string.IsNullOrEmpty(nama);
+
+//if (number1.HasValue)
+//{
+//    Console.WriteLine(number1.Value);
+//}
+//else
+//{
+//    Console.WriteLine("number1 is null");
+//}
+
+//MyLib.Person person = new MyLib.Person();
+
+//string value = "abc123";
+//char[] valueArray = value.ToCharArray();
+//Array.Reverse(valueArray);
+//// string result = new string(valueArray);
+//string result = String.Join(",", valueArray);
+//Console.WriteLine(result);
+
+
+//string message = "Help (find) the {opening symbols}";
+//Console.WriteLine($"Searching THIS Message: {message}");
+//char[] openSymbols = { '[', '{', '(' };
+//int startPosition = 5;
+//int openingPosition = message.IndexOfAny(openSymbols);
+//Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
+
+//openingPosition = message.IndexOfAny(openSymbols, startPosition);
+//Console.WriteLine($"Found WITH using startPosition {startPosition}:  {message.Substring(openingPosition)}");
+
+/* 
+This code uses a names array and corresponding methods to display
+greeting messages
+*/
+
+//string[] names = new string[] { "Sophia", "Andrew", "AllGreetings" };
+
+//string messageText = "";
+
+//foreach (string name in names)
+//{
+//    if (name == "Sophia")
+//        messageText = SophiaMessage();
+//    else if (name == "Andrew")
+//        messageText = AndrewMessage();
+//    else if (name == "AllGreetings")
+//        messageText = SophiaMessage();
+//    messageText = messageText + "\n\r" + AndrewMessage();
+
+//    Console.WriteLine(messageText + "\n\r");
+//}
+
+//bool pauseCode = true;
+//while (pauseCode == true) ;
+
+//static string SophiaMessage()
+//{
+//    return "Hello, my name is Sophia.";
+//}
+
+//static string AndrewMessage()
+//{
+//    return "Hi, my name is Andrew. Good to meet you.";
+//}
+
+double float1 = 3000.0;
+double float2 = 0.0;
+int number1 = 3000;
+int number2 = 0;
+
+int[] numbers = new int[3];
+
+try
+{
+    //numbers[10] = 12;
+    Console.WriteLine(float1 / float2);
+    Console.WriteLine(number1 / number2);
+}
+catch (IndexOutOfRangeException ioeEx)
+{
+    Console.WriteLine($"An index was out of range! {ioeEx.Message}");
+}
+catch (DivideByZeroException dbzEx)
+{
+    Console.WriteLine($"You attempted to divide by zero! {dbzEx.Message}");
+}
+catch (Exception ex)
+{
+
+    Console.WriteLine($"{ex.Message}");
+}

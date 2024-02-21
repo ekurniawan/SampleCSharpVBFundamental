@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chapter4
+﻿namespace Chapter4
 {
-    class Person
+    public class Person
     {
-        public string Name;
-        public string Address;
-        public string PhoneNumber;
-        public int Age;
+        public string? FullName { get; set; }
+        public int Age { get; set; }
     }
 }
