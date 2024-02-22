@@ -11,4 +11,9 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BO\BO.vbproj" />
+    <ProjectReference Include="..\DAL\DAL.vbproj" />
+  </ItemGroup>
+
 </Project>

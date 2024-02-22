@@ -92,8 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control.vb" />
-    <Compile Include="Customer.vb" />
-    <Compile Include="CustomerDAL.vb" />
     <Compile Include="IStorable.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -113,7 +111,6 @@
     </Compile>
     <Compile Include="Student.vb" />
     <Compile Include="Time.vb" />
-    <Compile Include="ViewOrder.vb" />
     <Compile Include="Window.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +147,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BO\BO.vbproj">
+      <Project>{344ccb42-8add-443f-9d83-fd02f2058226}</Project>
+      <Name>BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.vbproj">
+      <Project>{66a41dd6-449a-4106-833f-adb159b12e61}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyLib\MyLib.csproj">
       <Project>{24b4503e-de1a-4195-a98e-58d7523ecc27}</Project>
       <Name>MyLib</Name>

@@ -1,6 +1,7 @@
 ﻿Option Strict On
 Option Infer On
 Imports System.Text
+Imports BO
 
 
 
@@ -389,11 +390,13 @@ Module Module1
     End Sub
 
     Sub SampleDb()
-        Dim custDAL As New CustomerDAL
-        '    Dim customers = custDAL.GetCustomers()
-        '    For Each customer As Customer In customers
-        '        Console.WriteLine("{0}-{1}-{2}", customer.CustID, customer.CustName, customer.CustStreet)
-        '    Next
+
+        Dim custDAL As New DAL.CustomerDAL
+
+        Dim customers = custDAL.GetAll()
+        For Each customer As Customer In customers
+            Console.WriteLine("{0}-{1}-{2}", customer.CustID, customer.CustName, customer.CustStreet)
+        Next
 
         'Dim singleCust = custDAL.GetCustomerByID(2)
         'If singleCust IsNot Nothing Then
@@ -454,22 +457,23 @@ Module Module1
         '    Console.WriteLine(ex.Message)
         'End Try
 
-        Dim orders = custDAL.GetOrders()
-        For Each order As ViewOrder In orders
-            Console.WriteLine("{0}-{1}-{2}-{3}-{4}-{5}-{6}", order.StockSKU, order.StockName, order.StockPrice, order.CustName, order.Quantity, order.Discount, order.Total)
-        Next
+
+        'Dim orders = custDAL.GetOrders()
+        'For Each order As ViewOrder In orders
+        '    Console.WriteLine("{0}-{1}-{2}-{3}-{4}-{5}-{6}", order.StockSKU, order.StockName, order.StockPrice, order.CustName, order.Quantity, order.Discount, order.Total)
+        'Next
 
     End Sub
 
-    Sub SampleGetCustomerWithDS()
-        Dim custDAL As New CustomerDAL
-        Dim ds = custDAL.GetCustomerWithDS()
+    'Sub SampleGetCustomerWithDS()
+    '    Dim custDAL As New CustomerDAL
+    '    Dim ds = custDAL.GetCustomerWithDS()
 
-        Dim dt = ds.Tables("Customers")
-        For Each row As DataRow In dt.Rows
-            Console.WriteLine("{0}-{1}-{2}", row("CustID"), row("CustName"), row("CustStreet"))
-        Next
-    End Sub
+    '    Dim dt = ds.Tables("Customers")
+    '    For Each row As DataRow In dt.Rows
+    '        Console.WriteLine("{0}-{1}-{2}", row("CustID"), row("CustName"), row("CustStreet"))
+    '    Next
+    'End Sub
 
     Sub Main()
         '        Dim emp1 As New Employee
