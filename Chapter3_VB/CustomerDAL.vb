@@ -108,6 +108,33 @@ Public Class CustomerDAL
         End Try
     End Function
 
+    Public Function InsertCustomersSP(cust As Customer) As Integer
+        Try
+            Dim strSP = "usp_InsertCustomer"
+            cmd = New SqlCommand(strSP, conn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            cmd.Parameters.AddWithValue("@CustName", cust.CustName)
+            cmd.Parameters.AddWithValue("@CustStreet", cust.CustStreet)
+            cmd.Parameters.AddWithValue("@CustCity", cust.CustCity)
+            cmd.Parameters.AddWithValue("@CustStateProv", cust.CustStateProv)
+            cmd.Parameters.AddWithValue("@CustCountry", cust.CustCountry)
+            cmd.Parameters.AddWithValue("@CustPostalCode", cust.CustPostalCode)
+            cmd.Parameters.AddWithValue("@SalutationID", cust.SalutationID)
+
+            conn.Open()
+            Dim result = cmd.ExecuteNonQuery()
+            Return result
+        Catch sqlex As SqlException
+            Throw New ArgumentException(sqlex.Message & " " & sqlex.Number)
+        Catch ex As Exception
+            Throw ex
+        Finally
+            cmd.Dispose()
+            conn.Close()
+        End Try
+    End Function
+
     Public Function InsertCustomers(cust As Customer) As Integer
         Try
             Dim strSql = "INSERT INTO Orders.Customers (CustName, CustStreet, CustCity, CustStateProv, CustCountry, CustPostalCode, SalutationID) " &
