@@ -422,26 +422,42 @@ Module Module1
         '    Console.WriteLine(ex.Message)
         'End Try
 
-        Dim updateCust As New Customer
-        updateCust.CustID = 1003
-        updateCust.CustName = "Satya"
-        updateCust.CustStreet = "123 Main St"
-        updateCust.CustCity = "Spokane"
-        updateCust.CustStateProv = "WA"
-        updateCust.CustCountry = "US"
-        updateCust.CustPostalCode = "83573"
-        updateCust.SalutationID = 1
+        'Dim updateCust As New Customer
+        'updateCust.CustID = 1003
+        'updateCust.CustName = "Satya"
+        'updateCust.CustStreet = "123 Main St"
+        'updateCust.CustCity = "Spokane"
+        'updateCust.CustStateProv = "WA"
+        'updateCust.CustCountry = "US"
+        'updateCust.CustPostalCode = "83573"
+        'updateCust.SalutationID = 1
 
-        Try
-            Dim result = custDAL.UpdateCustomers(updateCust)
-            If result <> 1 Then
-                Console.WriteLine("Update failed")
-            Else
-                Console.WriteLine("Update success")
-            End If
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
+        'Try
+        '    Dim result = custDAL.UpdateCustomers(updateCust)
+        '    If result <> 1 Then
+        '        Console.WriteLine("Update failed")
+        '    Else
+        '        Console.WriteLine("Update success")
+        '    End If
+        'Catch ex As Exception
+        '    Console.WriteLine(ex.Message)
+        'End Try
+
+        'Try
+        '    Dim result = custDAL.DeleteCustomers(1003)
+        '    If result <> 1 Then
+        '        Console.WriteLine("Delete failed")
+        '    Else
+        '        Console.WriteLine("Delete success")
+        '    End If
+        'Catch ex As Exception
+        '    Console.WriteLine(ex.Message)
+        'End Try
+
+        Dim orders = custDAL.GetOrders()
+        For Each order As ViewOrder In orders
+            Console.WriteLine("{0}-{1}-{2}-{3}-{4}-{5}-{6}", order.StockSKU, order.StockName, order.StockPrice, order.CustName, order.Quantity, order.Discount, order.Total)
+        Next
 
     End Sub
 

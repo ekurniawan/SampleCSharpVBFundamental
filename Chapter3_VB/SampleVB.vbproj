@@ -113,6 +113,7 @@
     </Compile>
     <Compile Include="Student.vb" />
     <Compile Include="Time.vb" />
+    <Compile Include="ViewOrder.vb" />
     <Compile Include="Window.vb" />
   </ItemGroup>
   <ItemGroup>
