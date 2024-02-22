@@ -390,10 +390,15 @@ Module Module1
 
     Sub SampleDb()
         Dim custDAL As New CustomerDAL
-        Dim customers = custDAL.GetCustomers()
-        For Each customer As Customer In customers
-            Console.WriteLine("{0}-{1}-{2}", customer.CustID, customer.CustName, customer.CustStreet)
-        Next
+        '    Dim customers = custDAL.GetCustomers()
+        '    For Each customer As Customer In customers
+        '        Console.WriteLine("{0}-{1}-{2}", customer.CustID, customer.CustName, customer.CustStreet)
+        '    Next
+
+        Dim singleCust = custDAL.GetCustomerByID(2)
+        If singleCust IsNot Nothing Then
+            Console.WriteLine("{0}-{1}-{2}", singleCust.CustID, singleCust.CustName, singleCust.CustStreet)
+        End If
     End Sub
 
     Sub SampleGetCustomerWithDS()

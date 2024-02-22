@@ -44,14 +44,46 @@ Public Class CustomerDAL
         End Try
     End Function
 
+    Public Function GetCustomerByID(custID As Integer) As Customer
+        Try
+            Dim strSql = "SELECT * FROM Orders.Customers WHERE CustID = @CustID"
+
+            conn = New SqlConnection(strConn)
+            cmd = New SqlCommand(strSql, conn)
+            cmd.Parameters.AddWithValue("@CustID", custID)
+            conn.Open()
+            dr = cmd.ExecuteReader()
+            If dr.HasRows Then
+                dr.Read()
+                Dim cust As New Customer
+                cust.CustID = CInt(dr("CustID"))
+                cust.CustName = dr("CustName").ToString()
+                cust.CustStreet = dr("CustStreet").ToString()
+                cust.CustCity = dr("CustCity").ToString()
+                cust.CustStateProv = dr("CustStateProv").ToString()
+                cust.CustCountry = dr("CustCountry").ToString()
+                cust.CustPostalCode = dr("CustPostalCode").ToString()
+                cust.SalutationID = CInt(dr("SalutationID"))
+                Return cust
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            Throw ex
+        Finally
+            cmd.Dispose()
+            conn.Close()
+        End Try
+    End Function
+
     Public Function GetCustomerWithDS() As DataSet
         Try
             Dim strSql = "SELECT * FROM Orders.Customers order by CustName"
 
             conn = New SqlConnection(strConn)
             cmd = New SqlCommand(strSql, conn)
-
             Dim ds As New DataSet
+
             Dim da As New SqlDataAdapter
             da.SelectCommand = cmd
             conn.Open()
