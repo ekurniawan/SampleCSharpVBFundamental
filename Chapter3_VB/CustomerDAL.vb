@@ -15,7 +15,6 @@ Public Class CustomerDAL
         Try
             Dim strSql = "SELECT * FROM Orders.Customers order by CustName"
 
-
             conn = New SqlConnection(strConn)
             cmd = New SqlCommand(strSql, conn)
             conn.Open()
@@ -37,6 +36,29 @@ Public Class CustomerDAL
             dr.Close()
 
             Return Customers
+        Catch ex As Exception
+            Throw ex
+        Finally
+            cmd.Dispose()
+            conn.Close()
+        End Try
+    End Function
+
+    Public Function GetCustomerWithDS() As DataSet
+        Try
+            Dim strSql = "SELECT * FROM Orders.Customers order by CustName"
+
+            conn = New SqlConnection(strConn)
+            cmd = New SqlCommand(strSql, conn)
+
+            Dim ds As New DataSet
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            conn.Open()
+
+            da.Fill(ds, "Customers")
+
+            Return ds
         Catch ex As Exception
             Throw ex
         Finally

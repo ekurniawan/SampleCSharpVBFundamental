@@ -396,6 +396,16 @@ Module Module1
         Next
     End Sub
 
+    Sub SampleGetCustomerWithDS()
+        Dim custDAL As New CustomerDAL
+        Dim ds = custDAL.GetCustomerWithDS()
+
+        Dim dt = ds.Tables("Customers")
+        For Each row As DataRow In dt.Rows
+            Console.WriteLine("{0}-{1}-{2}", row("CustID"), row("CustName"), row("CustStreet"))
+        Next
+    End Sub
+
     Sub Main()
         '        Dim emp1 As New Employee
         '        emp1.Name = "John"
