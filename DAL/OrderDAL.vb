@@ -52,7 +52,7 @@ Public Class OrderDAL
 
     Public Function Create(obj As Order) As Integer Implements ICrud(Of Order).Create
         Try
-            Dim strSql = "INSERT INTO [Orders].[OrderItems] ([OrderDate],[OrderRequestedDate],[OrderDeliveryDate],[CustID],[OrderIsExpedited]) 
+            Dim strSql = "INSERT INTO [Orders].[Orders] ([OrderDate],[OrderRequestedDate],[OrderDeliveryDate],[CustID],[OrderIsExpedited]) 
             VALUES (@OrderDate,@OrderRequestedDate,@OrderDeliveryDate,@CustID,@OrderIsExpedited)"
             cmd = New SqlCommand(strSql, conn)
             cmd.Parameters.AddWithValue("@OrderDate", obj.OrderDate)

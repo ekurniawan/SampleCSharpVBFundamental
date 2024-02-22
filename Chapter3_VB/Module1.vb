@@ -391,6 +391,7 @@ Module Module1
 
     Sub SampleDb()
 
+
         Dim custDAL As New DAL.CustomerDAL
 
         Dim customers = custDAL.GetCustomerWithSalutation()
