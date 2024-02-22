@@ -9,6 +9,7 @@ Public Class CustomerDAL
 
     Public Sub New()
         strConn = "Server=ACTUAL;Database=BobsShoes;Trusted_Connection=True;"
+        conn = New SqlConnection(strConn)
     End Sub
 
     Public Function GetCustomers() As List(Of Customer)
@@ -46,10 +47,7 @@ Public Class CustomerDAL
 
     Public Function GetCustomerByID(custID As Integer) As Customer
         Try
-            Dim strSql = "SELECT * FROM Orders.Customers WHERE CustID = @CustID"
-
-            conn = New SqlConnection(strConn)
-            cmd = New SqlCommand(strSql, conn)
+            cmd = New SqlCommand("SELECT * FROM Orders.Customers WHERE CustID = @CustID", conn)
             cmd.Parameters.AddWithValue("@CustID", custID)
             conn.Open()
             dr = cmd.ExecuteReader()
@@ -75,6 +73,85 @@ Public Class CustomerDAL
             conn.Close()
         End Try
     End Function
+
+    Public Function InsertCustomers(cust As Customer) As Integer
+        Try
+            Dim strSql = "INSERT INTO Orders.Customers (CustName, CustStreet, CustCity, CustStateProv, CustCountry, CustPostalCode, SalutationID) " &
+                " VALUES (@CustName, @CustStreet, @CustCity, @CustStateProv, @CustCountry, @CustPostalCode, @SalutationID)"
+            cmd = New SqlCommand(strSql, conn)
+            cmd.Parameters.AddWithValue("@CustName", cust.CustName)
+            cmd.Parameters.AddWithValue("@CustStreet", cust.CustStreet)
+            cmd.Parameters.AddWithValue("@CustCity", cust.CustCity)
+            cmd.Parameters.AddWithValue("@CustStateProv", cust.CustStateProv)
+            cmd.Parameters.AddWithValue("@CustCountry", cust.CustCountry)
+            cmd.Parameters.AddWithValue("@CustPostalCode", cust.CustPostalCode)
+            cmd.Parameters.AddWithValue("@SalutationID", cust.SalutationID)
+
+            conn.Open()
+            Dim result = cmd.ExecuteNonQuery()
+            Return result
+        Catch sqlex As SqlException
+            Throw New ArgumentException(sqlex.Message & " " & sqlex.Number)
+        Catch ex As Exception
+            Throw ex
+        Finally
+            cmd.Dispose()
+            conn.Close()
+        End Try
+    End Function
+
+    Public Function UpdateCustomers(cust As Customer) As Integer
+        Try
+            Dim updateCust = GetCustomerByID(cust.CustID)
+            If updateCust Is Nothing Then
+                Throw New ArgumentException("Customer not found")
+            End If
+
+            Dim strSql = "UPDATE Orders.Customers SET CustName = @CustName, CustStreet = @CustStreet, CustCity = @CustCity, " &
+                "CustStateProv = @CustStateProv, CustCountry = @CustCountry, CustPostalCode = @CustPostalCode, SalutationID = @SalutationID " &
+                "WHERE CustID = @CustID"
+            cmd = New SqlCommand(strSql, conn)
+            cmd.Parameters.AddWithValue("@CustID", cust.CustID)
+            cmd.Parameters.AddWithValue("@CustName", cust.CustName)
+            cmd.Parameters.AddWithValue("@CustStreet", cust.CustStreet)
+            cmd.Parameters.AddWithValue("@CustCity", cust.CustCity)
+            cmd.Parameters.AddWithValue("@CustStateProv", cust.CustStateProv)
+            cmd.Parameters.AddWithValue("@CustCountry", cust.CustCountry)
+            cmd.Parameters.AddWithValue("@CustPostalCode", cust.CustPostalCode)
+            cmd.Parameters.AddWithValue("@SalutationID", cust.SalutationID)
+
+            conn.Open()
+            Dim result = cmd.ExecuteNonQuery()
+            Return result
+        Catch sqlex As SqlException
+            Throw New ArgumentException(sqlex.Message & " " & sqlex.Number)
+        Catch ex As Exception
+            Throw ex
+        Finally
+            cmd.Dispose()
+            conn.Close()
+        End Try
+    End Function
+
+    Public Function DeleteCustomers(custID As Integer) As Integer
+        Try
+            Dim strSql = "DELETE FROM Orders.Customers WHERE CustID = @CustID"
+            cmd = New SqlCommand(strSql, conn)
+            cmd.Parameters.AddWithValue("@CustID", custID)
+
+            conn.Open()
+            Dim result = cmd.ExecuteNonQuery()
+            Return result
+        Catch sqlex As SqlException
+            Throw New ArgumentException(sqlex.Message & " " & sqlex.Number)
+        Catch ex As Exception
+            Throw ex
+        Finally
+            cmd.Dispose()
+            conn.Close()
+        End Try
+    End Function
+
 
     Public Function GetCustomerWithDS() As DataSet
         Try

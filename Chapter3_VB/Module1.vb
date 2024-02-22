@@ -395,10 +395,54 @@ Module Module1
         '        Console.WriteLine("{0}-{1}-{2}", customer.CustID, customer.CustName, customer.CustStreet)
         '    Next
 
-        Dim singleCust = custDAL.GetCustomerByID(2)
-        If singleCust IsNot Nothing Then
-            Console.WriteLine("{0}-{1}-{2}", singleCust.CustID, singleCust.CustName, singleCust.CustStreet)
-        End If
+        'Dim singleCust = custDAL.GetCustomerByID(2)
+        'If singleCust IsNot Nothing Then
+        '    Console.WriteLine("{0}-{1}-{2}", singleCust.CustID, singleCust.CustName, singleCust.CustStreet)
+        'Else
+        '    Console.WriteLine("Customer not found")
+        'End If
+
+        'Dim newCust As New Customer
+        'newCust.CustName = "Erick"
+        'newCust.CustStreet = "123 Main St"
+        'newCust.CustCity = "Seatle"
+        'newCust.CustStateProv = "NTB"
+        'newCust.CustCountry = "US"
+        'newCust.CustPostalCode = "83573"
+        'newCust.SalutationID = 1
+
+        'Try
+        '    Dim result = custDAL.InsertCustomers(newCust)
+        '    If result <> 1 Then
+        '        Console.WriteLine("Insert failed")
+        '    Else
+        '        Console.WriteLine("Insert success")
+        '    End If
+        'Catch ex As Exception
+        '    Console.WriteLine(ex.Message)
+        'End Try
+
+        Dim updateCust As New Customer
+        updateCust.CustID = 1003
+        updateCust.CustName = "Satya"
+        updateCust.CustStreet = "123 Main St"
+        updateCust.CustCity = "Spokane"
+        updateCust.CustStateProv = "WA"
+        updateCust.CustCountry = "US"
+        updateCust.CustPostalCode = "83573"
+        updateCust.SalutationID = 1
+
+        Try
+            Dim result = custDAL.UpdateCustomers(updateCust)
+            If result <> 1 Then
+                Console.WriteLine("Update failed")
+            Else
+                Console.WriteLine("Update success")
+            End If
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
     End Sub
 
     Sub SampleGetCustomerWithDS()
