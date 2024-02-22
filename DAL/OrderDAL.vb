@@ -1,4 +1,5 @@
-﻿Imports System.Data
+﻿Imports System.Configuration
+Imports System.Data
 Imports System.Data.SqlClient
 Imports BO
 Imports MyInterface
@@ -6,10 +7,13 @@ Imports MyInterface
 Public Class OrderDAL
     Implements IOrder
 
-    Private strConn As String
     Private conn As SqlConnection
     Private cmd As SqlCommand
     Private dr As SqlDataReader
+
+    Public Sub New()
+        conn = New SqlConnection(ConfigurationManager.AppSettings.Get("MyConnectionString"))
+    End Sub
 
 
     Public Function GetOrders() As List(Of ViewOrder) Implements IOrder.GetOrders
@@ -47,7 +51,30 @@ Public Class OrderDAL
     End Function
 
     Public Function Create(obj As Order) As Integer Implements ICrud(Of Order).Create
-        Throw New NotImplementedException()
+        Try
+            Dim strSql = "INSERT INTO [Orders].[OrderItems] ([OrderDate],[OrderRequestedDate],[OrderDeliveryDate],[CustID],[OrderIsExpedited]) 
+            VALUES (@OrderDate,@OrderRequestedDate,@OrderDeliveryDate,@CustID,@OrderIsExpedited)"
+            cmd = New SqlCommand(strSql, conn)
+            cmd.Parameters.AddWithValue("@OrderDate", obj.OrderDate)
+            cmd.Parameters.AddWithValue("@OrderRequestedDate", obj.OrderRequestedDate)
+            cmd.Parameters.AddWithValue("@OrderDeliveryDate", obj.OrderDeliveryDate)
+            cmd.Parameters.AddWithValue("@CustID", obj.CustID)
+            cmd.Parameters.AddWithValue("@OrderIsExpedited", obj.OrderIsExpedited)
+
+            conn.Open()
+            Dim result = cmd.ExecuteNonQuery()
+            If result <> 1 Then
+                Throw New ArgumentException("Order not created")
+            End If
+            Return result
+        Catch sqlex As SqlException
+            Throw New ArgumentException(sqlex.Message & " " & sqlex.Number)
+        Catch ex As Exception
+            Throw ex
+        Finally
+            cmd.Dispose()
+            conn.Close()
+        End Try
     End Function
 
     Public Function GetAll() As List(Of Order) Implements ICrud(Of Order).GetAll

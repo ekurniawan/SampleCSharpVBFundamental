@@ -6,11 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BO\BO.vbproj" />
+    <ProjectReference Include="..\Helpers\Helpers.csproj" />
     <ProjectReference Include="..\MyInterface\MyInterface.vbproj" />
   </ItemGroup>
 

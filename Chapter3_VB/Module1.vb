@@ -393,9 +393,9 @@ Module Module1
 
         Dim custDAL As New DAL.CustomerDAL
 
-        Dim customers = custDAL.GetAll()
+        Dim customers = custDAL.GetCustomerWithSalutation()
         For Each customer As Customer In customers
-            Console.WriteLine("{0}-{1}-{2}", customer.CustID, customer.CustName, customer.CustStreet)
+            Console.WriteLine("{0}-{1}.{2}-{3}", customer.CustID, customer.Salutation.Salutation, customer.CustName, customer.CustStreet)
         Next
 
         'Dim singleCust = custDAL.GetCustomerByID(2)

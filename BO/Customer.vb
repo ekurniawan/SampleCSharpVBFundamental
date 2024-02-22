@@ -7,4 +7,6 @@
     Public Property CustCountry As String
     Public Property CustPostalCode As String
     Public Property SalutationID As Integer
+
+    Public Property Salutation As Salutation
 End Class
