@@ -41,6 +41,15 @@ Partial Public Class CrossPage
     Protected WithEvents txtSearch As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''txtFullName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFullName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''btnSearch control.
     '''</summary>
     '''<remarks>

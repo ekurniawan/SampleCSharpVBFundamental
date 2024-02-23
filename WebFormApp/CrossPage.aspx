@@ -12,6 +12,7 @@
             <asp:Label ID="lblSearch" Text="Search:"
                 runat="server" />
             <asp:TextBox ID="txtSearch" runat="server" />
+            <asp:TextBox ID="txtFullName" runat="server" />
             <asp:Button ID="btnSearch" Text="Cari"
                 PostBackUrl="CrossPageResult.aspx" runat="server" />
         </div>
