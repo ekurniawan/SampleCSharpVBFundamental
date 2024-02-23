@@ -99,6 +99,7 @@
     <Content Include="PanelKontrol.aspx" />
     <Content Include="SampleAutoPostBack.aspx" />
     <Content Include="SampleCommandEvent.aspx" />
+    <Content Include="SampleUploadImage.aspx" />
     <Content Include="SampleValidation.aspx" />
     <Content Include="SampleViewState.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -202,6 +203,13 @@
       <DependentUpon>SampleCommandEvent.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="SampleUploadImage.aspx.designer.vb">
+      <DependentUpon>SampleUploadImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleUploadImage.aspx.vb">
+      <DependentUpon>SampleUploadImage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="SampleValidation.aspx.designer.vb">
       <DependentUpon>SampleValidation.aspx</DependentUpon>
     </Compile>
@@ -260,6 +268,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
