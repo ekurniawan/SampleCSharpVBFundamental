@@ -92,13 +92,30 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CrossPage.aspx" />
+    <Content Include="CrossPageResult.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="SampleAutoPostBack.aspx" />
     <Content Include="SampleViewState.aspx" />
+    <Content Include="SimpleCalc.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrossPage.aspx.designer.vb">
+      <DependentUpon>CrossPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrossPage.aspx.vb">
+      <DependentUpon>CrossPage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="CrossPageResult.aspx.designer.vb">
+      <DependentUpon>CrossPageResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrossPageResult.aspx.vb">
+      <DependentUpon>CrossPageResult.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -140,6 +157,13 @@
     </Compile>
     <Compile Include="SampleViewState.aspx.vb">
       <DependentUpon>SampleViewState.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SimpleCalc.aspx.designer.vb">
+      <DependentUpon>SimpleCalc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleCalc.aspx.vb">
+      <DependentUpon>SimpleCalc.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
